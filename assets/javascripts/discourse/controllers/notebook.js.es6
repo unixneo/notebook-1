@@ -1,13 +1,15 @@
 export default Ember.Controller.extend({
   init() {
     this._super();
-    this.set('notes', []);
+    this.set("notes", []);
     this.fetchNotes();
+    console.log("Ember.Controller.extend: init");
   },
 
   fetchNotes() {
-    this.store.findAll('note')
-      .then(result => {
+    this.store
+      .findAll("note")
+      .then((result) => {
         for (const note of result.content) {
           this.notes.pushObject(note);
         }
@@ -21,24 +23,26 @@ export default Ember.Controller.extend({
         return;
       }
 
-      const noteRecord = this.store.createRecord('note', {
+      const noteRecord = this.store.createRecord("note", {
         id: Date.now(),
-        content: content
+        content: content,
       });
 
-      noteRecord.save()
-        .then(result => {
+      noteRecord
+        .save()
+        .then((result) => {
           this.notes.pushObject(result.target);
         })
         .catch(console.error);
     },
 
     deleteNote(note) {
-      this.store.destroyRecord('note', note)
+      this.store
+        .destroyRecord("note", note)
         .then(() => {
           this.notes.removeObject(note);
         })
         .catch(console.error);
-    }
-  }
+    },
+  },
 });

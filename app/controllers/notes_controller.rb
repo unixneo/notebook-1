@@ -1,14 +1,20 @@
 class NotesController < ApplicationController
   def index
-    Rails.logger.info 'Called NotesController#index'
+    if SiteSetting.notebook_debug?
+      File.open("./log/log.txt", "a") { |f| f.write "#{Time.now} - Called NotesController#index\n" }
+      Rails.logger.info 'Called NotesController#index'
+    end
+    
     notes = NoteStore.get_notes()
 
     render json: { notes: notes.values }
   end
 
   def update
-    Rails.logger.info 'Called NotesController#update'
-
+    if SiteSetting.notebook_debug?
+      File.open("./log/log.txt", "a") { |f| f.write "#{Time.now} - Called NotesController#update\n" }
+      Rails.logger.info 'Called NotesController#update'
+    end
     note_id = params[:note_id]
     note = {
       'id' => note_id,
@@ -21,8 +27,10 @@ class NotesController < ApplicationController
   end
 
   def destroy
-    Rails.logger.info 'Called NotesController#destroy'
-
+    if SiteSetting.notebook_debug?
+      Rails.logger.info 'Called NotesController#destroy'
+      File.open("./log/log.txt", "a") { |f| f.write "#{Time.now} - Called NotesController#destroy\n" }
+    end
     NoteStore.remove_note(params[:note_id])
 
     render json: success_json

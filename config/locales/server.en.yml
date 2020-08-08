@@ -1,3 +1,4 @@
 en:
   site_settings:
-    notebook_enabled: 'Enable Notebook'
+    notebook_enabled: "Enable Notebook"
+    notebook_debug: "Enable Notebook Debug Log ./log/log.txt"
