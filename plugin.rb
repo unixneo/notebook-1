@@ -1,5 +1,5 @@
 # name: notebook
-# version: 0.7.1
+# version: 0.7.2
 
 enabled_site_setting :notebook_enabled
 
