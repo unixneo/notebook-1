@@ -13,7 +13,7 @@ after_initialize do
   load File.expand_path('../app/controllers/notes_controller.rb', __FILE__)
   
   if SiteSetting.notebook_debug?
-    File.open("./log/log.txt", "a") { |f| f.write "#{Time.now} - Initiated notebook plugin\n" }
+    File.open("./log/notebook_log.txt", "a") { |f| f.write "#{Time.now} - Initialized notebook plugin - after_initialize plugin.rb\n" }
   end
 
   

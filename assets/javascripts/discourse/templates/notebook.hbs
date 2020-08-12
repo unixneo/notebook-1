@@ -1,26 +1,30 @@
 <h1>{{ i18n 'notebook.title' }}</h1>
+<div class="notes-page">
+  <form {{ action 'createNote' note on='submit' }}>
 
-<form {{ action 'createNote' note on='submit' }}>
-  <label>
-    {{ i18n 'notebook.create_note.text_field_label' }}
+    <label>
+      {{ i18n 'notebook.create_note.text_field_label' }}
+    </label>
     {{ textarea name='note' value=note }}
-  </label>
 
-  <button type='submit' class='btn btn-primary'>
-    {{ i18n 'notebook.create_note.submit_label' }}
-  </button>
-</form>
 
-{{#if notes}}
-<ul>
-  {{#each notes as |note|}}
-    <li>
-      {{ note.content }}
+    <button type='submit' class='btn btn-primary'>
+      {{ i18n 'notebook.create_note.submit_label' }}
+    </button>
+  </form>
 
-      <button type="button" class="btn btn-danger" {{ action 'deleteNote' note }}>
+  {{#if notes}}
+  <ul>
+    {{#each notes as |note|}}
+    <li class="notes">
+      <button type="button" class="btn text-danger" {{ action 'deleteNote' note }}>
         {{ i18n 'notebook.delete_note_label' }}
       </button>
+      {{ note.content }}
+
+
     </li>
-  {{/each}}
-</ul>
-{{/if}}
+    {{/each}}
+  </ul>
+  {{/if}}
+</div>

@@ -3,3 +3,11 @@ textarea {
   min-width: 500px;
   resize: vertical;
 }
+
+.notes {
+  margin-bottom: 10px;
+}
+
+.notes-page {
+  padding: 15px;
+}
