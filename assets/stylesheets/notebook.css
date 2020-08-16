@@ -1,6 +1,6 @@
 textarea {
   display: block;
-  min-width: 500px;
+  min-width: 900px;
   resize: vertical;
 }
 
@@ -21,6 +21,7 @@ textarea {
 
 .notes-plus {
   border: 0 !important;
+  padding-top: 3px;
   background-color: #1e90ff;
   color: white;
   opacity: 0.9;

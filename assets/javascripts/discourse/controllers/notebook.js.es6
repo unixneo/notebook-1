@@ -52,6 +52,7 @@ export default Ember.Controller.extend({
         .save()
         .then((result) => {
           this.notes.pushObject(result.target);
+          this.set("note", "");
         })
         .catch(console.error);
     },
