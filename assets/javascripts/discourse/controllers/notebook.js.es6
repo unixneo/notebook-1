@@ -15,7 +15,9 @@ export default Ember.Controller.extend({
     this._super();
     this.set("notes", []);
     this.fetchNotes();
-    console.log("Ember.Controller.extend: init");
+    if (Discourse.SiteSettings.notebook_debug == true) {
+      console.log("Ember.Controller.extend: init");
+    }
   },
   fetchNotes() {
     this.store
@@ -34,9 +36,16 @@ export default Ember.Controller.extend({
         return;
       }
 
+      var da_user = "";
+      if (Discourse.User.current() == null) {
+        da_user = "guest";
+      } else {
+        da_user = Discourse.currentUser.username;
+      }
+      da_user += ": ";
       const noteRecord = this.store.createRecord("note", {
         id: Date.now(),
-        content: content,
+        content: da_user + content,
       });
 
       noteRecord
