@@ -20,12 +20,18 @@ export default Ember.Controller.extend({
     }
   },
   fetchNotes() {
+    var ascending = false;
+    if (Discourse.SiteSettings.notebook_ascending !== "undefined") {
+      ascending = Discourse.SiteSettings.notebook_ascending;
+    }
+
     this.store
       .findAll("note")
       .then((result) => {
         for (const note of result.content) {
           this.notes.pushObject(note);
         }
+        this.notes.reverse();
       })
       .catch(console.error);
   },
@@ -42,7 +48,11 @@ export default Ember.Controller.extend({
       } else {
         da_user = Discourse.currentUser.username;
       }
-      da_user += ": ";
+
+      var now = new moment();
+      var my_time = now.format("HH:mm:ss");
+      da_user = "[" + my_time + "] " + da_user + ": ";
+
       const noteRecord = this.store.createRecord("note", {
         id: Date.now(),
         content: da_user + content,
@@ -53,10 +63,11 @@ export default Ember.Controller.extend({
         .then((result) => {
           this.notes.pushObject(result.target);
           this.set("note", "");
+          this.notes.reverse();
         })
         .catch(console.error);
+      this.notes.reverse();
     },
-
     deleteNote(note) {
       this.store
         .destroyRecord("note", note)

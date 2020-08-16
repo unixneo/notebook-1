@@ -1,3 +1,10 @@
+textarea {
+  overflow: auto;
+  display: block;
+  min-width: 900px;
+  resize: vertical;
+}
+
 .notes {
   margin-bottom: 10px;
 }

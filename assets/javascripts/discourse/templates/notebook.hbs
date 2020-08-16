@@ -7,7 +7,7 @@
       {{ i18n 'notebook.create_note.text_field_label' }}
     </label>
     <div class="notes-text-area">
-      {{ textarea  name='note' value=note autofocus=true }}
+      {{ textarea id="notebook"  name='note' value=note autofocus=true }}
     </div>
     <button type='submit' class='notes-plus'>
       <svg class="fa d-icon d-icon-fa-plus svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
@@ -24,12 +24,13 @@
 
 
         {{ note.content }}
-        <button type="button" {{ action 'deleteNote' note }} class="notes-trash">
-          <svg class="fa d-icon d-icon-fa-trash-alt svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
-            <use xlink:href="#trash-alt"></use>
-          </svg>
-        </button>
-
+        <span class='setting-controls'>
+          <button type="button" {{ action 'deleteNote' note }} class="notes-trash">
+            <svg class="fa d-icon d-icon-fa-trash-alt svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+              <use xlink:href="#trash-alt"></use>
+            </svg>
+          </button>
+        </span>
       </li>
       {{/each}}
     </ol>
