@@ -2,7 +2,7 @@
 
 # name: notebook
 # about: notebook is a fork of the notebook tutorial plugin https://github.com/kleinfreund/notebook
-# version: 0.7.4
+# version: 0.7.5
 # authors: kleinfreund, unixneo
 # url: https://github.com/unixneo/notebook-neo
 

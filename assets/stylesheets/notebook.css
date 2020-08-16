@@ -11,3 +11,10 @@ textarea {
 .notes-page {
   padding: 15px;
 }
+
+.notes-trash {
+  border: 0 !important;
+  background-color: transparent !important;
+  color: #8b0000;
+  opacity: 0.8;
+}

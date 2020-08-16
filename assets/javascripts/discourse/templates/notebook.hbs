@@ -8,25 +8,28 @@
     </label>
     {{ textarea name='note' value=note }}
 
-
     <button type='submit' class='btn btn-primary'>
+
       {{ i18n 'notebook.create_note.submit_label' }}
     </button>
   </form>
 
   {{#if notes}}
-  <ul>
+  <ol>
     {{#each notes as |note|}}
     <li class="notes">
-      <button type="button" class="btn text-danger" {{ action 'deleteNote' note }}>
-        {{ i18n 'notebook.delete_note_label' }}
-      </button>
-      {{ note.content }}
 
+
+      {{ note.content }}
+      <button type="button" {{ action 'deleteNote' note }} class="notes-trash">
+        <svg class="fa d-icon d-icon-fa-trash-alt svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+          <use xlink:href="#trash-alt"></use>
+        </svg>
+      </button>
 
     </li>
     {{/each}}
-  </ul>
+  </ol>
   {{/if}}
 </div>
 {{else}}
