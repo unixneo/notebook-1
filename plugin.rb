@@ -1,5 +1,10 @@
+# frozen_string_literal: true
+
 # name: notebook
-# version: 0.7.2
+# about: notebook is a fork of the notebook tutorial plugin https://github.com/kleinfreund/notebook
+# version: 0.7.3
+# authors: kleinfreund, unixneo
+# url: https://github.com/unixneo/notebook-neo
 
 enabled_site_setting :notebook_enabled
 

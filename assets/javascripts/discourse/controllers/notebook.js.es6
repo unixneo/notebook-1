@@ -1,11 +1,22 @@
+import discourseComputed from "discourse-common/utils/decorators";
 export default Ember.Controller.extend({
+  @discourseComputed()
+  isPermitted() {
+    if (
+      Discourse.User.current() == null &&
+      Discourse.SiteSettings.notebook_show_guests == false
+    ) {
+      return false;
+    } else {
+      return true;
+    }
+  },
   init() {
     this._super();
     this.set("notes", []);
     this.fetchNotes();
     console.log("Ember.Controller.extend: init");
   },
-
   fetchNotes() {
     this.store
       .findAll("note")

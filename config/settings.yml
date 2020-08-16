@@ -1,5 +1,7 @@
 plugins:
   notebook_enabled:
     default: false
+  notebook_show_guests:
+    default: false
   notebook_debug:
     default: false

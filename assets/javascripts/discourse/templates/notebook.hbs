@@ -1,3 +1,4 @@
+{{#if isPermitted}}
 <h1>{{ i18n 'notebook.title' }}</h1>
 <div class="notes-page">
   <form {{ action 'createNote' note on='submit' }}>
@@ -28,3 +29,7 @@
   </ul>
   {{/if}}
 </div>
+{{else}}
+<h1>{{ i18n 'notebook.title' }}</h1>
+<h2>Not logged in.</h2>
+{{/if}}

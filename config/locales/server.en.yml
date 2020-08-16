@@ -2,3 +2,4 @@ en:
   site_settings:
     notebook_enabled: "Enable Notebook"
     notebook_debug: "Enable Notebook Debug Log ./log/log.txt"
+    notebook_show_guests: "Show Notebook to Guests?"
