@@ -1,0 +1,19 @@
+textarea {
+  overflow: auto;
+  display: block;
+  min-width: 900px !important;
+  resize: vertical;
+}
+
+.notes-list {
+  overflow: auto;
+}
+
+.notes-plus {
+  border: 0 !important;
+  margin-top: 10px;
+  padding-top: 3px;
+  background-color: #1e90ff;
+  color: white;
+  opacity: 0.9;
+}

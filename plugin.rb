@@ -2,13 +2,15 @@
 
 # name: notebook
 # about: notebook is a fork of the notebook tutorial plugin https://github.com/kleinfreund/notebook
-# version: 0.7.7
+# version: 0.7.8
 # authors: kleinfreund, unixneo
 # url: https://github.com/unixneo/notebook-neo
 
 enabled_site_setting :notebook_enabled
 
-register_asset 'stylesheets/notebook.css'
+register_asset 'stylesheets/common/notebook.scss'
+register_asset 'stylesheets/mobile/notebook.scss'
+register_asset 'stylesheets/desktop/notebook.scss'
 
 load File.expand_path('../app/note_store.rb', __FILE__)
 

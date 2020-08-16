@@ -6,8 +6,9 @@
     <label>
       {{ i18n 'notebook.create_note.text_field_label' }}
     </label>
-    {{ textarea  name='note' value=note autofocus=true }}
-
+    <div class="notes-text-area">
+      {{ textarea  name='note' value=note autofocus=true }}
+    </div>
     <button type='submit' class='notes-plus'>
       <svg class="fa d-icon d-icon-fa-plus svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
         <use xlink:href="#plus"></use>
@@ -16,21 +17,23 @@
   </form>
 
   {{#if notes}}
-  <ol>
-    {{#each notes as |note|}}
-    <li class="notes">
+  <div class="notes-list">
+    <ol>
+      {{#each notes as |note|}}
+      <li class="notes">
 
 
-      {{ note.content }}
-      <button type="button" {{ action 'deleteNote' note }} class="notes-trash">
-        <svg class="fa d-icon d-icon-fa-trash-alt svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
-          <use xlink:href="#trash-alt"></use>
-        </svg>
-      </button>
+        {{ note.content }}
+        <button type="button" {{ action 'deleteNote' note }} class="notes-trash">
+          <svg class="fa d-icon d-icon-fa-trash-alt svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+            <use xlink:href="#trash-alt"></use>
+          </svg>
+        </button>
 
-    </li>
-    {{/each}}
-  </ol>
+      </li>
+      {{/each}}
+    </ol>
+  </div>
   {{/if}}
 </div>
 {{else}}
