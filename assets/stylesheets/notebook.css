@@ -18,3 +18,10 @@ textarea {
   color: #8b0000;
   opacity: 0.8;
 }
+
+.notes-plus {
+  border: 0 !important;
+  background-color: #1e90ff;
+  color: white;
+  opacity: 0.9;
+}
